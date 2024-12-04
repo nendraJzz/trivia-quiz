@@ -123,6 +123,7 @@ Tertantang untuk mengalahkan skorku?`;
           </div>
         ) : (
           <div>
+            <p className="text-black">5 Pertanyaan</p>
             <h2 className="text-3xl font-semibold mb-6 text-blue-600">
               Pertanyaan {currentQuestion + 1}
             </h2>
