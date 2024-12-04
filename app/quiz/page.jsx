@@ -4,22 +4,14 @@ import { useState, useEffect } from "react";
 
 const Quiz = () => {
   const questions = [
-    { question: "Apa ibu kota Indonesia?", answer: "Jakarta" },
-    { question: "Siapa presiden pertama Indonesia?", answer: "Soekarno" },
     {
       question: "Apa nama planet terdekat dengan matahari?",
       answer: "Merkurius",
     },
     { question: "Berapa jumlah provinsi di Indonesia?", answer: "38" },
-    { question: "Apa bahasa resmi di Indonesia?", answer: "Bahasa Indonesia" },
     { question: "Siapa penemu telepon?", answer: "Alexander Graham Bell" },
-    {
-      question: "Apa nama samudra terbesar di dunia?",
-      answer: "Samudra Pasifik",
-    },
     { question: "Siapa pencipta Facebook?", answer: "Mark Zuckerberg" },
     { question: "Apa simbol kimia untuk air?", answer: "H2O" },
-    { question: "Berapa banyak benua di dunia?", answer: "7" },
   ];
 
   const [isClient, setIsClient] = useState(false);
@@ -139,7 +131,7 @@ Tertantang untuk mengalahkan skorku?`;
             </p>
             <input
               type="text"
-              className="border-2 border-blue-400 p-3 w-full mb-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+              className="border-2 border-blue-400 text-black p-3 w-full mb-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
               placeholder="Jawaban Anda"
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}

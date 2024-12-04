@@ -48,7 +48,7 @@ const Home = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            className="border-2 border-blue-400 p-3 w-full mb-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+            className="border-2 border-blue-400 text-black p-3 w-full mb-6 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
             placeholder="Masukkan nama Anda"
             value={name}
             onChange={(e) => setName(e.target.value)}
