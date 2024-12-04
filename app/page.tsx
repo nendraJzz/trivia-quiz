@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 const Home = () => {
   const [name, setName] = useState("");
   const [isClient, setIsClient] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -15,7 +16,11 @@ const Home = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name.trim()) {
-      router.push(`/quiz?name=${name}`);
+      setIsLoading(true);
+      setTimeout(() => {
+        router.push(`/quiz?name=${name}`);
+        setIsLoading(false);
+      }, 2000);
     }
   };
 
@@ -24,9 +29,17 @@ const Home = () => {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-blue-300 to-blue-500">
+    <div className="flex justify-center items-center p-3 h-screen bg-gradient-to-r from-blue-300 to-blue-500">
+      {}
+      {isLoading && (
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 animate-gradient"></div>
+      )}
+
       <div className="fixed font-sans top-4 left-4 right-4 mx-auto w-auto max-w-7xl bg-white border border-gray-300 rounded-lg p-3 shadow-lg">
-        <h1 className="text-lg font-bold text-gray-800 text-center">Lihat hasil akhir setelah selesai, dan bagikan hasilmu untuk menantang temanmu!</h1>
+        <h1 className="text-lg font-bold text-gray-800 text-center">
+          Lihat hasil akhir setelah selesai, dan bagikan hasilmu untuk menantang
+          temanmu!
+        </h1>
       </div>
       <div className="bg-white p-10 rounded-xl shadow-xl w-96 max-w-md">
         <h1 className="text-4xl font-semibold mb-6 text-center text-blue-600">
