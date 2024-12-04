@@ -50,7 +50,7 @@ const Quiz = () => {
       setUserAnswer("");
     } else {
       const baseUrl = window.location.origin;
-      const quizLink = `${baseUrl}/quiz-result?score=${score}&total=${questions.length}`;
+      const quizLink = `${baseUrl}`;
       setShareLink(quizLink);
       setFinished(true);
     }
@@ -76,6 +76,13 @@ Tertantang untuk mengalahkan skorku?`;
     window.open(whatsappUrl, "_blank");
   };
 
+  const handleRetry = () => {
+    setCurrentQuestion(0);
+    setUserAnswer("");
+    setScore(0);
+    setFinished(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r p-3 from-blue-300 to-blue-500 flex justify-center items-center py-10">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -87,6 +94,7 @@ Tertantang untuk mengalahkan skorku?`;
             <p className="text-lg text-gray-700 mb-4">
               Skor Anda: {score} / {questions.length}
             </p>
+
             <div className="mb-4">
               <label className="block text-sm text-gray-600 mb-2">
                 Link Hasil Kuis:
@@ -98,6 +106,12 @@ Tertantang untuk mengalahkan skorku?`;
                 className="w-full p-2 border rounded bg-gray-100 text-sm"
               />
             </div>
+            <button
+              onClick={handleRetry}
+              className="bg-yellow-500 text-white py-3 w-full rounded-lg shadow-md hover:bg-yellow-600 transition duration-300 ease-in-out transform hover:scale-105 mb-4"
+            >
+              Coba Lagi
+            </button>
             <button
               onClick={handleWhatsAppShare}
               className="bg-green-500 text-white py-3 w-full rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-105 flex justify-center items-center"
